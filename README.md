@@ -1,9 +1,10 @@
-## TimeLuxe E-Commerce Website
+## TimeLuxe E-Commerce Website⌚
 
 TimeLuxe is a Django based e commerce web application that allows users to browse products, view product details, add items to a cart, and place orders using a simple and user friendly interface.
 
-## Live
+## 🚀Live
 This project is already deployed and can be accessed using the live link below.
+
 https://mangla11.pythonanywhere.com/
 
 ## Features
