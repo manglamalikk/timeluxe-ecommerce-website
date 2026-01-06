@@ -1,0 +1,419 @@
+<link rel="stylesheet" href="{% static 'main/style.css' %}" />
+
+  <!-- Login Required Modal (same as products.html) -->
+  <div class="modal fade" id="loginRequiredModal" tabindex="-1" aria-labelledby="loginRequiredModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginRequiredModalLabel">Account Required</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs mb-3" id="loginSignupTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-pane"
+                type="button" role="tab" aria-controls="login-pane" aria-selected="true">Login</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-pane" type="button"
+                role="tab" aria-controls="signup-pane" aria-selected="false">Sign Up</button>
+            </li>
+          </ul>
+          <div class="tab-content" id="loginSignupTabContent">
+            <div class="tab-pane fade show active" id="login-pane" role="tabpanel" aria-labelledby="login-tab"
+              tabindex="0">
+              <form id="modalLoginForm">
+                <div class="mb-3">
+                  <label for="modalLoginEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="modalLoginEmail" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="modalLoginPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="modalLoginPassword" placeholder="********" required>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="modalRememberMe">
+                  <label class="form-check-label" for="modalRememberMe">Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-2 mb-3">Login</button>
+                <p class="text-center"><a href="#" class="text-decoration-none text-gold">Forgot password?</a></p>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="signup-pane" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
+              <form id="modalSignupForm">
+                <div class="mb-3">
+                  <label for="modalSignupName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="modalSignupName" placeholder="John Doe" required>
+                </div>
+                <div class="mb-3">
+                  <label for="modalSignupEmail" class="form-label">Email address</label>
+                  <input type="email" class="form-control" id="modalSignupEmail" placeholder="name@example.com"
+                    required>
+                </div>
+                <div class="mb-3">
+                  <label for="modalSignupPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="modalSignupPassword" placeholder="********" required>
+                </div>
+                <div class="mb-4">
+                  <label for="modalConfirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="modalConfirmPassword" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-2 mb-3">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Checkout Section -->
+  <section class="checkout-section my-5">
+    <div class="container">
+      <div class="row">
+        <!-- Order Summary -->
+        <div class="col-lg-5 mb-4">
+          <div class="card p-4 sticky-top" style="top: 20px;">
+            <h3 class="mb-4">Order Summary</h3>
+            <div id="orderSummary">
+              <!-- Order items will be inserted here -->
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Subtotal:</span>
+              <span id="subtotal">₹ 0.00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Shipping:</span>
+              <span id="shipping">₹ 0.00</span>
+            </div>
+            <div class="d-flex justify-content-between mb-2">
+              <span>Tax:</span>
+              <span id="tax">₹ 0.00</span>
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between fw-bold">
+              <span>Total:</span>
+              <span id="total">₹ 0.00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Form -->
+        <div class="col-lg-7">
+          <div id="checkoutForm">
+            <h3 class="mb-4">Payment Information</h3>
+            <div class="card p-4 mb-4">
+              <form id="paymentForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                  <div class="invalid-feedback">Please enter your full name.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <h5 class="mt-4 mb-3">Payment Method</h5>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard"
+                      checked>
+                    <label class="form-check-label" for="creditCard">
+                      Credit/Debit Card
+                    </label>
+                  </div>
+                  <div id="creditCardDetails" class="mt-3">
+                    <div class="mb-3">
+                      <label for="cardNumber" class="form-label">Card Number</label>
+                      <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456"
+                        pattern="[0-9]{13,19}" required>
+                      <div class="invalid-feedback">Please enter a valid 13-19 digit card number.</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="expiryDate" class="form-label">Expiry Date</label>
+                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/YY"
+                          pattern="^(0[1-9]|1[0-2])\/?([0-9]{2})$" required>
+                        <div class="invalid-feedback">Please enter a valid expiry date (MM/YY).</div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="cvv" class="form-label">CVV</label>
+                        <input type="text" class="form-control" id="cvv" placeholder="123" pattern="[0-9]{3,4}"
+                          required>
+                        <div class="invalid-feedback">Please enter a valid 3 or 4 digit CVV.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="paypal" value="paypal">
+                    <label class="form-check-label" for="paypal">
+                      PayPal
+                    </label>
+                  </div>
+                  <div id="paypalDetails" class="mt-3" style="display: none;">
+                    <p>You will be redirected to PayPal for payment</p>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-hero-cta w-100 py-3">Complete Payment</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Order Confirmation Modal -->
+  <div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Order Confirmation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <i class="fas fa-check-circle text-success mb-3" style="font-size: 3rem;"></i>
+          <h4>Thank you for your order!</h4>
+          <p>Your order has been placed successfully.</p>
+          <p>Order ID: <strong>TLX-<span id="orderId"></span></strong></p>
+          <p>A confirmation email has been sent to <span id="confirmationEmail"></span></p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a href="index.html" class="btn btn-dark">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer (same as other pages) -->
+  <footer class="bg-dark text-light pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h5 class="mb-3"><span class="text-white">Time</span><span class="timeluxe-gold-text">Luxé</span></h5>
+          <p class="text-light">
+            Your trusted source for elegant and timeless watches crafted with precision and passion.
+          </p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Shop</h6>
+          <ul class="list-unstyled">
+            <li><a href="products.html" class="text-light text-decoration-none">All Products</a></li>
+            <li><a href="new-arrivals.html" class="text-light text-decoration-none">New Arrivals</a></li>
+            <li><a href="best-sellers.html" class="text-light text-decoration-none">Best Sellers</a></li>
+            <li><a href="sale.html" class="text-light text-decoration-none">Sale</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="faq.html" class="text-light text-decoration-none">FAQ</a></li>
+            <li><a href="#shipping" class="text-light text-decoration-none">Shipping</a></li>
+            <li><a href="#returns" class="text-light text-decoration-none">Returns</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <h6 class="text-uppercase mb-3">Follow us</h6>
+          <div class="d-flex justify-content-center justify-content-md-end gap-3">
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-youtube" style="color: red;"></i></a>
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-twitter" style="color: #74C0FC;"></i></a>
+            <a href="#" class="fs-4" style="display: inline-block;">
+              <i class="fa-brands fa-instagram" style="
+                font-size: 1.5rem;
+                background: linear-gradient(45deg, #fd5d8b, #feda75);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent; 
+                background-clip: text;
+                color: transparent;"></i>
+            </a>
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-facebook" style="color: #709db5"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="border-secondary">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start small text-light">
+          © 2025 <strong>TimeLuxé</strong>. All rights reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end small">
+          <a href="#privacy" class="text-light text-decoration-none me-3">Privacy Policy</a>
+          <a href="#terms" class="text-light text-decoration-none me-3">Terms & Conditions</a>
+          <a href="#cookies" class="text-light text-decoration-none">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+  <script>
+    // Initialize cart from localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+// DOM Elements
+const orderSummaryEl = document.getElementById('orderSummary');
+const paymentForm = document.getElementById('paymentForm');
+
+// Update cart count function
+function updateCartCount() {
+  const cartCountEl = document.getElementById('cart-count');
+  if (cartCountEl) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCountEl.textContent = totalItems;
+    cartCountEl.style.display = totalItems > 0 ? 'block' : 'none';
+  }
+}
+
+// Update order summary
+function updateOrderSummary() {
+  if (cart.length === 0) {
+    orderSummaryEl.innerHTML = '<p>No items in cart</p>';
+    updateTotals(0);
+    return;
+  }
+
+  orderSummaryEl.innerHTML = cart.map(item => `
+    <div class="d-flex justify-content-between mb-3">
+      <div>
+        <h6>${item.name}</h6>
+        <small>Qty: ${item.quantity}</small>
+      </div>
+      <span>₹${(item.price * item.quantity).toFixed(2)}</span>
+    </div>
+  `).join('');
+
+  const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  updateTotals(subtotal);
+}
+
+function updateTotals(subtotal) {
+  const shipping = subtotal > 0 ? 100 : 0;
+  const tax = subtotal * 0.18;
+  const total = subtotal + shipping + tax;
+
+  document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+  document.getElementById('shipping').textContent = `₹${shipping.toFixed(2)}`;
+  document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+  document.getElementById('total').textContent = `₹${total.toFixed(2)}`;
+}
+
+// Check login status on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateOrderSummary();
+
+  if (!isLoggedIn) {
+    const loginModal = new bootstrap.Modal(document.getElementById('loginRequiredModal'));
+    loginModal.show();
+  }
+
+  // Setup payment method toggles
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+    radio.addEventListener('change', (e) => {
+      document.getElementById('creditCardDetails').style.display =
+        e.target.value === 'creditCard' ? 'block' : 'none';
+      document.getElementById('paypalDetails').style.display =
+        e.target.value === 'paypal' ? 'block' : 'none';
+    });
+  });
+
+  // Handle form submission
+  paymentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (paymentForm.checkValidity()) {
+      // Generate order ID and show confirmation
+      const orderId = 'TLX-' + Math.floor(100000 + Math.random() * 900000);
+      const email = document.getElementById('email').value;
+
+      // Show confirmation modal
+      document.getElementById('orderId').textContent = orderId;
+      document.getElementById('confirmationEmail').textContent = email;
+      const modal = new bootstrap.Modal(document.getElementById('orderConfirmationModal'));
+      modal.show();
+
+      // Clear cart
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+    }
+    paymentForm.classList.add('was-validated');
+  });
+
+  // Modal form handlers
+  const modalLoginForm = document.getElementById('modalLoginForm');
+  const modalSignupForm = document.getElementById('modalSignupForm');
+  const loginRequiredModal = bootstrap.Modal.getInstance(document.getElementById('loginRequiredModal')) || 
+                           new bootstrap.Modal(document.getElementById('loginRequiredModal'));
+
+  if (modalLoginForm) {
+    modalLoginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.setItem('isLoggedIn', 'true');
+      
+      const pendingAction = localStorage.getItem('pendingAction');
+      const pendingProduct = JSON.parse(localStorage.getItem('pendingProduct'));
+      const pendingCheckout = localStorage.getItem('pendingCheckout');
+
+      if (pendingAction === 'addToCart' && pendingProduct) {
+        addToCart(pendingProduct.name, pendingProduct.price, pendingProduct.image);
+        window.location.href = 'cart.html';
+      } 
+      else if (pendingAction === 'buyNow' && pendingProduct) {
+        cart = [{ name: pendingProduct.name, price: pendingProduct.price, image: pendingProduct.image, quantity: 1 }];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.href = 'checkout.html';
+      }
+      else if (pendingCheckout === 'true') {
+        window.location.href = 'checkout.html';
+      }
+      
+      localStorage.removeItem('pendingAction');
+      localStorage.removeItem('pendingProduct');
+      localStorage.removeItem('pendingCheckout');
+    });
+  }
+
+  if (modalSignupForm) {
+    modalSignupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('modalSignupPassword').value;
+      const confirmPassword = document.getElementById('modalConfirmPassword').value;
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      localStorage.setItem('isLoggedIn', 'true');
+      if (loginRequiredModal) loginRequiredModal.hide();
+
+      const pendingAction = localStorage.getItem('pendingAction');
+      const pendingProduct = JSON.parse(localStorage.getItem('pendingProduct'));
+      const pendingCheckout = localStorage.getItem('pendingCheckout');
+
+      if (pendingAction === 'addToCart' && pendingProduct) {
+        addToCart(pendingProduct.name, pendingProduct.price, pendingProduct.image);
+      } else if (pendingAction === 'buyNow' && pendingProduct) {
+        cart = [{ name: pendingProduct.name, price: pendingProduct.price, image: pendingProduct.image, quantity: 1 }];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        window.location.href = 'checkout.html';
+      } else if (pendingCheckout === 'true') {
+        window.location.href = 'checkout.html';
+      }
+
+      localStorage.removeItem('pendingAction');
+      localStorage.removeItem('pendingProduct');
+      localStorage.removeItem('pendingCheckout');
+    });
+  }
+}); // This closes the DOMContentLoaded event listener
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ 
+</body>
+
+</html>

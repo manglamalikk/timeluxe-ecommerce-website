@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeLuxé</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/about.css' %}" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+        <span class="material-symbols-outlined">layers</span>
+        <span class="ms-2"><span class="text-white">Time</span><span class="timeluxe-gold-text">Luxé</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="{% url 'products' %}" class="nav-link">Products</a></li>
+          <li class="nav-item"><a href="{% url 'about' %}" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}" class="nav-link">Sign Up</a></li>
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+          <li class="nav-item"><a href="{% url 'cart' %}" class="nav-link position-relative"><i class="fas fa-shopping-cart"></i></a></li>
+          <li class="nav-item"><a href="{% url 'faq' %}" class="nav-link">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="container my-5">
+    <!-- Hero Section -->
+    <section class="about-hero text-center py-5 mb-4">
+      <h1 class="display-4 fw-bold">Horology, Perfected</h1>
+      <p class="lead">Where Swiss precision meets minimalist elegance</p>
+    </section>
+
+    <!-- Our Story -->
+    <section class="our-story row align-items-center mb-5 py-4">
+      <div class="col-lg-6">
+        <img src="images/pexels-sash2s-16705699.jpg" alt="Master watchmaker" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="mb-4">Our Heritage</h2>
+        <p class="lead">Founded in 2010 by master watchmaker Antoine Vallier.</p>
+        <p>Every TimeLuxé watch blends <strong>Swiss tradition</strong> with contemporary design, crafted in our Geneva
+          atelier.</p>
+       
+      </div>
+    </section>
+
+    <!-- Craftsmanship -->
+    <section class="craftsmanship-section p-5 mb-5">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-8">
+            <h2>The Art of Precision</h2>
+            <p>Each component undergoes <strong>347 quality checks</strong> under horological microscopes.</p>
+            <ul class="list-unstyled">
+              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> 5-year international warranty</li>
+              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Free lifetime adjustments</li>
+              <li><i class="fas fa-check-circle me-2"></i> Recycled stainless steel cases</li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center">
+            <img src="images/pexels-philip-lindvall-300724-1120275.jpg" alt="Watch components" class="img-fluid w-150 rounded ">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section mb-5">
+      <h2 class="text-center mb-5">The Guardians of Time</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card team-card h-100 border-0 shadow-sm">
+            <!-- Team member content -->
+          </div>
+        </div>
+        <!-- Other team members -->
+      </div>
+    </section>
+    <!-- Values Section -->
+    <section class="values-section p-4 mb-3">
+      <h2 class="text-center mb-4">Our Pillars</h2>
+      <div class="row text-center g-4">
+        <div class="col-md-4">
+          <div class="p-2">
+            <i class="fas fa-award values-icon"></i>
+            <h4 style="color: var(--timeluxe-primary-dark);">Master Craftsmanship</h4>
+            <p>6-8 months to assemble each watch.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <i class="fas fa-leaf fs-1 mb-3" style="color: var(--timeluxe-accent-gold);"></i>
+            <h4 style="color: var(--timeluxe-primary-dark);">Sustainable Luxury</h4>
+            <p style="color: var(--timeluxe-text-primary);">Carbon-neutral since 2015.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-2">
+            <i class="fas fa-heart fs-1 mb-3" style="color: var(--timeluxe-accent-gold);"></i>
+            <h4 style="color: var(--timeluxe-primary-dark);">Ethical Practices</h4>
+            <p style="color: var(--timeluxe-text-primary);">Fair wages for all artisans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="bg-dark text-light pt-5 pb-4">
+    <div class="container">
+      <div class="row">
+
+        <!-- About -->
+        <div class="col-md-4 mb-4">
+          <h5 class="mb-3"><span class="text-white">Time</span><span class="timeluxe-gold-text">Luxé</span></h5>
+          <p class="text-light">
+            Your trusted source for elegant and timeless watches crafted with precision and passion.
+          </p>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Shop</h6>
+          <ul class="list-unstyled">
+            <li><a href="products.html" class="text-light text-decoration-none">All Products</a></li>
+            <li><a href="new-arrivals.html" class="text-light text-decoration-none">New Arrivals</a></li>
+            <li><a href="best-sellers.html" class="text-light text-decoration-none">Best Sellers</a></li>
+            <li><a href="sale.html" class="text-light text-decoration-none">Sale</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="FAQ.html" class="text-light text-decoration-none">FAQ</a></li>
+            <li><a href="#shipping" class="text-light text-decoration-none">Shipping</a></li>
+            <li><a href="#returns" class="text-light text-decoration-none">Returns</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <h6 class="text-uppercase mb-3">Follow us</h6>
+          <div class="d-flex justify-content-center justify-content-md-end gap-3">
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-youtube" style="color: red ;"></i></a>
+
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-twitter" style="color: #74C0FC;"></i></a>
+            <a href="#" class="fs-4" style="display: inline-block;">
+              <i class="fa-brands fa-instagram" style="font-size: 1.5rem; background: linear-gradient(45deg, #fd5d8b, #feda75);   -webkit-background-clip: text;   -webkit-text-fill-color: transparent;  background-clip: text; color: transparent;"></i>
+            </a>
+
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-facebook" style="color: #709db5"></i></a>
+
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary">
+
+      <!-- Bottom Bar -->
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start small text-light">
+          &copy; 2025 <strong>TimeLuxé</strong>. All rights reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end small">
+          <a href="#privacy" class="text-light text-decoration-none me-3">Privacy Policy</a>
+          <a href="#terms" class="text-light text-decoration-none me-3">Terms & Conditions</a>
+          <a href="#cookies" class="text-light text-decoration-none">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

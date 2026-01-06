@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | TimeLuxé</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=layers" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 custom-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <span class="material-symbols-outlined">layers</span>
+        <span class="ms-2"><span class="text-white">Time</span><span class="timeluxe-gold-text">Luxé</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="products.html" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="register.html" class="nav-link active">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link position-relative">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="faq.html" class="nav-link">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <!-- Register Hero Section -->
+    <section class="about-hero text-center py-5 mb-4">
+      <h1 class="display-4 fw-bold">Join TimeLuxé</h1>
+      <p class="lead">Create your account to enjoy personalized services and exclusive benefits</p>
+    </section>
+
+    <!-- Register Form Section -->
+    <section class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-5">
+            <h2 class="mb-4 text-center" style="color: var(--timeluxe-primary-dark);">Create Account</h2>
+            
+            <form>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                <div class="form-text">Minimum 8 characters with at least one number</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="••••••••" required>
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></label>
+              </div>
+              
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="newsletterCheck">
+                <label class="form-check-label" for="newsletterCheck">Subscribe to our newsletter for exclusive offers</label>
+              </div>
+              
+              <div class="d-grid mb-3">
+                <button type="submit" class="btn py-2" style="background-color: var(--timeluxe-accent-gold); color: var(--timeluxe-primary-dark); font-weight: 600;">
+                  Create Account
+                </button>
+              </div>
+              
+              <div class="text-center" style="color: var(--timeluxe-text-primary);">
+                Already have an account? <a href="login.html" class="text-decoration-none" style="color: var(--timeluxe-accent-gold);">Sign in</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light pt-5 pb-4 custom-footer">
+    <div class="container">
+      <div class="row">
+        <!-- About -->
+        <div class="col-md-4 mb-4">
+          <h5 class="mb-3"><span class="text-white">Time</span><span class="timeluxe-gold-text">Luxé</span></h5>
+          <p class="text-light">
+            Your trusted source for elegant and timeless watches crafted with precision and passion.
+          </p>
+        </div>
+
+        <!-- Shop Links -->
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Shop</h6>
+          <ul class="list-unstyled">
+            <li><a href="products.html" class="text-light text-decoration-none">All Products</a></li>
+            <li><a href="new-arrivals.html" class="text-light text-decoration-none">New Arrivals</a></li>
+            <li><a href="best-sellers.html" class="text-light text-decoration-none">Best Sellers</a></li>
+            <li><a href="sale.html" class="text-light text-decoration-none">Sale</a></li>
+          </ul>
+        </div>
+
+        <!-- Support -->
+        <div class="col-md-2 mb-4">
+          <h6 class="text-uppercase mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="FAQ.html" class="text-light text-decoration-none">FAQ</a></li>
+            <li><a href="#shipping" class="text-light text-decoration-none">Shipping</a></li>
+            <li><a href="#returns" class="text-light text-decoration-none">Returns</a></li>
+            <li><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="col-md-4 mb-4 text-center text-md-end">
+          <h6 class="text-uppercase mb-3">Follow us</h6>
+          <div class="d-flex justify-content-center justify-content-md-end gap-3">
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" class="fs-4" style="display: inline-block;">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="text-light fs-4"><i class="fa-brands fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-secondary">
+
+      <!-- Bottom Bar -->
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start small text-light">
+          &copy; 2025 <strong>TimeLuxé</strong>. All rights reserved.
+        </div>
+        <div class="col-md-6 text-center text-md-end small">
+          <a href="#privacy" class="text-light text-decoration-none me-3">Privacy Policy</a>
+          <a href="#terms" class="text-light text-decoration-none me-3">Terms & Conditions</a>
+          <a href="#cookies" class="text-light text-decoration-none">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

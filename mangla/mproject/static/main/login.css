@@ -1,0 +1,220 @@
+/* login.css - Consistent with TimeLuxé theme */
+:root {
+    --timeluxe-primary-dark: #1C1C1C;
+    --timeluxe-background-light: #F4F4F4;
+    --timeluxe-accent-gold: #FFC300;
+    --timeluxe-accent-gold-hover: #FFD700;
+    --timeluxe-accent-red: #D32F2F;
+    --timeluxe-text-primary: #333333;
+    --timeluxe-text-light: #F2F2F2;
+    --timeluxe-text-secondary-grey: #8D8D8D;
+    --timeluxe-border-subtle: #696969;
+    --timeluxe-accent-light: #fffbe6;
+    --timeluxe-accent-light-hover: #fff3b0;
+    --timeluxe-secondary-dark: #222;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--timeluxe-background-light);
+    font-family: 'Open Sans', sans-serif;
+    color: var(--timeluxe-text-primary);
+}
+
+/* Navbar Styles */
+.custom-navbar {
+    background-color: var(--timeluxe-primary-dark) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--timeluxe-text-light) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--timeluxe-accent-gold) !important;
+    font-weight: 600;
+}
+
+.timeluxe-gold-text {
+    color: var(--timeluxe-accent-gold) !important;
+}
+
+/* Hero Section */
+.about-hero {
+    background-color: var(--timeluxe-accent-light);
+    padding: 3rem 0;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-hero h1 {
+    color: var(--timeluxe-primary-dark);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.about-hero .lead {
+    color: var(--timeluxe-text-primary);
+    font-weight: 300;
+}
+
+/* Login Card */
+.card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 2.5rem;
+}
+
+.card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.card h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--timeluxe-accent-gold);
+    margin: 0.75rem auto 0;
+}
+
+/* Form Elements */
+.form-control {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--timeluxe-border-subtle);
+    border-radius: 0.25rem;
+    background-color: var(--timeluxe-background-light);
+}
+
+.form-control:focus {
+    border-color: var(--timeluxe-accent-gold);
+    box-shadow: 0 0 0 0.25rem rgba(255, 195, 0, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--timeluxe-text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--timeluxe-accent-gold);
+    border: none;
+    color: var(--timeluxe-primary-dark);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--timeluxe-accent-gold-hover);
+    transform: translateY(-1px);
+}
+
+.btn-outline-dark {
+    border-color: var(--timeluxe-border-subtle);
+    color: var(--timeluxe-text-primary);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    border-color: var(--timeluxe-accent-gold);
+    background-color: transparent;
+    color: var(--timeluxe-text-primary);
+}
+
+/* Links */
+a {
+    color: var(--timeluxe-accent-gold);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--timeluxe-accent-gold-hover);
+    text-decoration: underline;
+}
+
+/* Divider */
+.text-center {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.text-center::before,
+.text-center::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--timeluxe-border-subtle);
+    margin: auto;
+}
+
+.text-center::before {
+    margin-right: 0.5rem;
+}
+
+.text-center::after {
+    margin-left: 0.5rem;
+}
+
+/* Social Icons */
+.fab {
+    font-size: 1.25rem;
+}
+
+.fa-google {
+    color: #DB4437;
+}
+
+.fa-apple {
+    color: var(--timeluxe-text-primary);
+}
+
+/* Footer Styles */
+.custom-footer {
+    background-color: var(--timeluxe-primary-dark) !important;
+    color: var(--timeluxe-text-light);
+    padding-top: 3rem !important;
+    margin-top: 3rem;
+}
+
+.text-light {
+    color: var(--timeluxe-text-light) !important;
+}
+
+/* Social Icons in Footer */
+.fa-youtube { 
+    color: #FF0000 !important; 
+}
+.fa-twitter { 
+    color: #1DA1F2 !important; 
+}
+.fa-facebook { 
+    color: #1877F2 !important; 
+}
+.fa-instagram {
+    background: linear-gradient(45deg, #fd5d8b, #feda75);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+    .about-hero {
+        padding: 2rem 0;
+    }
+}
